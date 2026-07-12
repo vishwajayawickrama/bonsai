@@ -8,9 +8,9 @@ def lexer(text: str) -> list:
         elif c in '+-*/()':
             tokens.append(('OP', c))
             i += 1
-        elif c.isDigit():
+        elif c.isdigit():
             j = i
-            while j < len(text) and text[j].isDigit():
+            while j < len(text) and text[j].isdigit():
                 j += 1
             tokens.append(('NUM', int(text[i:j])))
             i = j
@@ -18,5 +18,4 @@ def lexer(text: str) -> list:
             raise SyntaxError (f"lexer: unexpected character {c!r}")
     tokens.append(('EOF', None))
     return tokens
-
         
